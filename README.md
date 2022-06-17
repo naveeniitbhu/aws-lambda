@@ -13,3 +13,12 @@ give us an endpoint to actually trigger this event.
 We trigger the lambda function living below with an event:
 `https://83ljriw57f.execute-api.us-east-1.amazonaws.com/dev/rank`
 the event sends the info of browser we requested from.
+
+Write the rank function and change stage to prod.
+On frontend side:
+fetch(`/prod/rank?rank=${entries}`)
+.then(resp => resp.json())
+.then(data => this.setState({emoji: data.input}))
+.catch(console.log)
+
+You get cors error.
